@@ -8,9 +8,9 @@ import { Input } from '../Input'
 import * as yup from 'yup'
 
 
-const FormCustomers = () => {
+const FormContacts = () => {
 
-    const [ user, setUser ] = useState<string>('')
+    const [ contact, setContact ] = useState<string>('')
 
     const [ load, setLoad ] = useState<boolean>(false)
 
@@ -34,24 +34,24 @@ const FormCustomers = () => {
 
         setLoad(true)
 
-        api.post('/customers', data, {
+        api.post('/contacts', data, {
 
             headers: {
                 'Content-Type': 'application/json'
             }
         })
-        .then(res => setUser(res.data))
+        .then(res => setContact(res.data))
         .catch(err => console.error(err))
         .finally(() => setLoad(false))
 
-        console.log(user)
+        console.log(contact)
     }
 
     return (
 
         <Container onSubmit={ handleSubmit(onSubmitFunction) }>
 
-            <h1>Client</h1>
+            <h1>Contact</h1>
             
             <Input
             placeholder="name"
@@ -85,4 +85,4 @@ const FormCustomers = () => {
     )
 }
 
-export { FormCustomers }
+export { FormContacts }
