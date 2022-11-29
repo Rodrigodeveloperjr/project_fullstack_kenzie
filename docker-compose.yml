@@ -15,6 +15,18 @@ services:
       - /app/node_modules
       - ./backend:/app
 
+  frontend:
+    stdin_open: true
+    container_name: project_fullstack_kenzie_frontend
+    build:
+      dockerfile: Dockerfile
+      context: "./frontend"
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
+    ports:
+      - 5173:5173
+
   postgres:
     container_name: db_project_fullstack_kenzie
     image: postgres:latest
