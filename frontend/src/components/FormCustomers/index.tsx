@@ -1,28 +1,13 @@
-import { useEffect, useState } from 'react'
-import { api } from '../../services/api'
-import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
-import { Container } from './style'
 import { useHistory } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+import { api } from '../../services/api'
+import { Container } from './style'
+import { useState } from 'react'
+import * as yup from 'yup'
 
-
-interface IClientProps {
-	id: string
-	name: string
-	email: string
-	telephone: string
-	created_at: string
-}
-
-export interface IContactProps {
-	id: string
-	name: string
-	email: string
-	telephone: string
-}
 
 const FormCustomers = () => {
 

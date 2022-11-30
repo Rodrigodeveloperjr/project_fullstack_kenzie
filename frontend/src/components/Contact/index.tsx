@@ -1,7 +1,8 @@
+import { IContactComponent } from '../../interfaces'
 import { Container } from './style'
 
 
-const Contact = ({ contact }: any) => {
+const Contact = ({ contact }: IContactComponent) => {
 
     return (
         <Container>

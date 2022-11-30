@@ -1,22 +1,24 @@
-import { useState } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
 import { Contact } from '../../components/Contact'
 import { Container, HeaderStyle } from './style'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
-import { api } from '../../services/api'
+import { IContactProps } from '../../interfaces'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
+import { useForm } from 'react-hook-form'
+import { api } from '../../services/api'
+import { useState } from 'react'
 import * as yup from 'yup'
+
 
 const Home = () => {
 
-    const clientName = localStorage.getItem('Project FullStack Kenzie: client.name')
-
-    const [ contacts, setContacts ] = useState<any>([])
-
-    const addContact = (contact: any) => setContacts([ ...contacts, contact ])
+    const [ contacts, setContacts ] = useState<IContactProps[]>([])
 
     const [ load, setLoad ] = useState<boolean>(false)
+
+    const addContact = (contact: IContactProps) => setContacts([ ...contacts, contact ])
+
+    const clientName = localStorage.getItem('Project FullStack Kenzie: client.name')
 
     const clientId = localStorage.getItem('Project FullStack Kenzie: client.id')
 
@@ -104,7 +106,7 @@ const Home = () => {
                 <menu>
                     <h1>Contacts</h1>
                     {
-                        contacts?.map((contact: any) => <Contact contact={ contact }/>)
+                        contacts?.map((contact: IContactProps) => <Contact contact={ contact }/>)
                     }
                 </menu>
             </Container>

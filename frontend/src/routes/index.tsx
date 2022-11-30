@@ -1,6 +1,6 @@
-import { Route, Switch } from "react-router-dom"
-import { FormCustomers } from "../components/FormCustomers"
-import { Home } from "../pages/Home"
+import { FormCustomers } from '../components/FormCustomers'
+import { Route, Switch } from 'react-router-dom'
+import { Home } from '../pages/Home'
 
 
 const Routes = () => {
