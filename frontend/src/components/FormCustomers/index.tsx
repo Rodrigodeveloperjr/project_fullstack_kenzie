@@ -69,39 +69,39 @@ const FormCustomers = () => {
     }
 
     return (
-        <Container onSubmit={ handleSubmit(onSubmitFunction) }>
+        <Container>
+            <form onSubmit={ handleSubmit(onSubmitFunction) }>
+                <h1>Register Client</h1>
 
-            <h1>Client</h1>
+                <Input
+                placeholder="name"
+                label="Name"
+                type="text"
+                register={ register }
+                name="name"
+                error={ errors.name?.message }
+                />
+                <Input
+                placeholder="email"
+                label="Email"
+                type="email"
+                register={ register }
+                name="email"
+                error={ errors.email?.message }
+                />
+                <Input
+                placeholder="telephone"
+                label="Telephone"
+                type="text"
+                register={ register }
+                name="telephone"
+                error={ errors.telephone?.message }
+                />
 
-            <Input
-            placeholder="name"
-            label="Name"
-            type="text"
-            register={ register }
-            name="name"
-            error={ errors.name?.message }
-            />
-            <Input
-            placeholder="email"
-            label="Email"
-            type="email"
-            register={ register }
-            name="email"
-            error={ errors.email?.message }
-            />
-            <Input
-            placeholder="telephone"
-            label="Telephone"
-            type="text"
-            register={ register }
-            name="telephone"
-            error={ errors.telephone?.message }
-            />
-
-            <Button type="submit" disabled={ load }>{
-                load ? 'Sending...' : 'Submit'
-            }</Button>
-
+                <Button type="submit" disabled={ load }>{
+                    load ? 'Sending...' : 'Submit'
+                }</Button>
+            </form>
         </Container>
     )
 }

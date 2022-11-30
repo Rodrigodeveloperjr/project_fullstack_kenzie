@@ -5,9 +5,9 @@ const Contact = ({ contact }: any) => {
 
     return (
         <Container>
-            <p>{ contact.name }</p>
-            <p>{ contact.email }</p>
-            <p>{ contact.telephone }</p>
+            <p>Name: { contact.name }</p>
+            <p>Email: { contact.email }</p>
+            <p>Telephone: { contact.telephone }</p>
         </Container>
     )
 }
