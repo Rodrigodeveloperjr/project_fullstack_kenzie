@@ -67,9 +67,9 @@ e rode uma requisição no insomnia
 
 ```
 {
-"name": "johndoe",
-"email": "johndoe@org.com",
-"telephone": "(99) 9 9999-9999" 
+    "name": "johndoe",
+    "email": "johndoe@org.com",
+    "telephone": "(99) 9 9999-9999" 
 }
 ```
 
@@ -114,5 +114,5 @@ a flag `-d` é para rodar o projeto em 'background' deixando o terminal livre pa
 ## Desenvolvedor
 
 <a href="https://www.linkedin.com/in/rodrigo-de-jesus-silva">
-    <img src="front-end/src/assets/icons8-linkedin-48.png" />
+    <img src="frontend/src/assets/icons8-linkedin-48.png" />
 </a>
