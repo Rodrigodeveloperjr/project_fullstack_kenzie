@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 
 export default createGlobalStyle`
@@ -24,3 +24,17 @@ export default createGlobalStyle`
         text-decoration: none;
     }
 `
+
+const Container = styled.div`
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & > menu {
+
+        background: yellow;
+    }
+`
+
+export { Container }

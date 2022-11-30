@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 
-const Container = styled.form`
-
+const Container = styled.div`
+    
+    background: yellow;
 `
 
 export { Container }

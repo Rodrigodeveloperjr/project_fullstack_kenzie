@@ -11,7 +11,6 @@ const createClientService = async ({ name, email, telephone }: IClientRequest): 
     client.name = name
     client.email = email
     client.telephone = telephone
-    client.contacts = []
 
     clientRepository.create(client)
     await clientRepository.save(client)

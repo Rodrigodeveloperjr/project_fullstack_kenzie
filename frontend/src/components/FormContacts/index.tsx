@@ -40,11 +40,9 @@ const FormContacts = () => {
                 'Content-Type': 'application/json'
             }
         })
-        .then(res => setContact(res.data))
+        .then(res => setContact(res.data.name))
         .catch(err => console.error(err))
         .finally(() => setLoad(false))
-
-        console.log(contact)
     }
 
     return (
@@ -52,6 +50,7 @@ const FormContacts = () => {
         <Container onSubmit={ handleSubmit(onSubmitFunction) }>
 
             <h1>Contact</h1>
+            <div>{ contact }</div>
             
             <Input
             placeholder="name"

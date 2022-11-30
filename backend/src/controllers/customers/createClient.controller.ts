@@ -5,6 +5,8 @@ import { Request, Response } from 'express'
 
 const createClientController = async (req: Request, res: Response) => {
 
+    req.clientEmail = req.body.email
+
     const { name, email, telephone }: IClientRequest = req.body
 
     const client = await createClientService({ name, email, telephone })
