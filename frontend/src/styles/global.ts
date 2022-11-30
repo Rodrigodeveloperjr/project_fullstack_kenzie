@@ -12,8 +12,8 @@ export default createGlobalStyle`
     }
 
     body {
-        background: var(--background);
-        color: var(--color);
+        background: white;
+        color: black;
     }
     
     button {
@@ -24,17 +24,3 @@ export default createGlobalStyle`
         text-decoration: none;
     }
 `
-
-const Container = styled.div`
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    & > menu {
-
-        background: yellow;
-    }
-`
-
-export { Container }

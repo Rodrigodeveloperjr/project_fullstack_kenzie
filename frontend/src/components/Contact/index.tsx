@@ -1,8 +1,7 @@
-import { IContactProps } from '../../App'
 import { Container } from './style'
 
 
-const Contact = (contact: any) => {
+const Contact = ({ contact }: any) => {
 
     return (
         <Container>

@@ -1,20 +1,36 @@
+import { useEffect, useState } from 'react'
+import { api } from '../../services/api'
+import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
-import { api } from '../../services/api'
+import { Button } from '../../components/Button'
+import { Input } from '../../components/Input'
 import { Container } from './style'
-import { Button } from '../Button'
-import { useState } from 'react'
-import { Input } from '../Input'
-import * as yup from 'yup'
+import { useHistory } from 'react-router-dom'
 
 
-const FormContacts = ({ addContact, setContacts }: any) => {
+interface IClientProps {
+	id: string
+	name: string
+	email: string
+	telephone: string
+	created_at: string
+}
+
+export interface IContactProps {
+	id: string
+	name: string
+	email: string
+	telephone: string
+}
+
+const FormCustomers = () => {
+
+    const history = useHistory()
 
     const [ load, setLoad ] = useState<boolean>(false)
 
-    const client = localStorage.getItem('Project FullStack Kenzie: client.id')
-
-    const schema = yup.object().shape({
+	const schema = yup.object().shape({
 
         name: yup
             .string()
@@ -34,7 +50,7 @@ const FormContacts = ({ addContact, setContacts }: any) => {
 
         setLoad(true)
 
-        api.post('/contacts', data, {
+        api.post('/customers', data, {
 
             headers: {
                 'Content-Type': 'application/json'
@@ -42,27 +58,21 @@ const FormContacts = ({ addContact, setContacts }: any) => {
         })
         .then(res => {
             
-            const contact = {
-                id: res.data.id,
-                name: res.data.name,
-                email: res.data.email,
-                telephone: res.data.telephone
-            }
+            localStorage.setItem('Project FullStack Kenzie: client.name', res.data.name)
+
+            localStorage.setItem('Project FullStack Kenzie: client.id', res.data.id)
             
-            addContact(contact)
-            
-            setContacts(res.data.client.contacts)
+            history.push('/home')
         })
         .catch(err => console.error(err))
         .finally(() => setLoad(false))
     }
 
     return (
-
         <Container onSubmit={ handleSubmit(onSubmitFunction) }>
 
-            <h1>Contact</h1>
-            
+            <h1>Client</h1>
+
             <Input
             placeholder="name"
             label="Name"
@@ -91,8 +101,9 @@ const FormContacts = ({ addContact, setContacts }: any) => {
             <Button type="submit" disabled={ load }>{
                 load ? 'Sending...' : 'Submit'
             }</Button>
+
         </Container>
     )
 }
 
-export { FormContacts }
+export { FormCustomers }
